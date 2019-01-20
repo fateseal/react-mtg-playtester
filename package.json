@@ -30,8 +30,8 @@
     "start": "rollup -c -w",
     "build": "NODE_ENV=production rollup -c",
     "test": "jest",
-    "format": "prettier --write \"src/**/*.js\"",
-    "prepublishOnly": "npm run build",
+    "format": "prettier --write \"src/**/*.{css,js}\"",
+    "prepublishOnly": "npm test && npm run build",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static",
     "build-storybook": "build-storybook"
