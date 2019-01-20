@@ -1,6 +1,6 @@
 {
   "name": "react-mtg-playtester",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Zeb Pykosz",
   "license": "MIT",
   "description": "React Magic: The Gathering drag and drop playtester",
