@@ -1,0 +1,918 @@
+{
+  "username": "zebapy",
+  "name": "Jund Burn",
+  "cards": [
+    {
+      "_id": "55328ad0ee2ded225380ad36",
+      "card": {
+        "_id": "55328ad0ee2ded225380ad36",
+        "type": "Creature",
+        "toughness": "2",
+        "set_code": "ZEN",
+        "cost": "R",
+        "subtype": "Goblin Scout",
+        "number": 126,
+        "slug": "goblin-guide",
+        "created_at": "2015-04-29T01:27:59.703Z",
+        "token": false,
+        "related_card": 0,
+        "updated_at": "2015-05-09T15:51:31.510Z",
+        "power": "2",
+        "set_id": { "_id": "5532cc0360b6eccc396ffcc9", "slug": "zendikar" },
+        "cmc": 1,
+        "name": "Goblin Guide",
+        "loyalty": null,
+        "rarity": "Rare",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "legality": "Legal", "name": "Modern" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/zen/126.jpg",
+        "id": "55328ad0ee2ded225380ad36"
+      },
+      "name": "Goblin Guide",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328c0e7b48084d562577ba",
+      "card": {
+        "_id": "55328c0e7b48084d562577ba",
+        "set_code": "KTK",
+        "cost": "R",
+        "power": "1",
+        "name": "Monastery Swiftspear",
+        "updated_at": "2015-05-09T15:51:48.497Z",
+        "cmc": 1,
+        "toughness": "2",
+        "number": 118,
+        "loyalty": null,
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcd3",
+          "slug": "khans-of-tarkir"
+        },
+        "rarity": "Uncommon",
+        "related_card": 0,
+        "type": "Creature",
+        "subtype": "Human Monk",
+        "token": false,
+        "slug": "monastery-swiftspear",
+        "created_at": "2015-04-29T01:27:49.346Z",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "legality": "Legal", "name": "Modern" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/ktk/118.jpg",
+        "id": "55328c0e7b48084d562577ba"
+      },
+      "name": "Monastery Swiftspear",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328c107b48084d562578c5",
+      "card": {
+        "_id": "55328c107b48084d562578c5",
+        "rarity": "Rare",
+        "slug": "eidolon-of-the-great-revel",
+        "power": "2",
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcb7",
+          "slug": "journey-into-nyx"
+        },
+        "loyalty": null,
+        "subtype": "Spirit",
+        "updated_at": "2015-05-09T15:51:16.600Z",
+        "cost": "RR",
+        "type": "Enchantment Creature",
+        "related_card": 0,
+        "created_at": "2015-04-29T01:28:26.261Z",
+        "token": false,
+        "number": 94,
+        "toughness": "2",
+        "name": "Eidolon of the Great Revel",
+        "cmc": 2,
+        "set_code": "JOU",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "legality": "Legal", "name": "Standard" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/jou/94.jpg",
+        "id": "55328c107b48084d562578c5"
+      },
+      "name": "Eidolon of the Great Revel",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328ae1ee2ded225380bc45",
+      "card": {
+        "_id": "55328ae1ee2ded225380bc45",
+        "cost": "R",
+        "loyalty": null,
+        "number": 145,
+        "name": "Grim Lavamancer",
+        "slug": "grim-lavamancer",
+        "cmc": 1,
+        "updated_at": "2015-05-09T15:51:12.497Z",
+        "created_at": "2015-04-29T01:27:39.162Z",
+        "set_code": "M12",
+        "token": false,
+        "subtype": "Human Wizard",
+        "type": "Creature",
+        "toughness": "1",
+        "rarity": "Rare",
+        "set_id": { "_id": "5532cc0360b6eccc396ffcb2", "slug": "magic-2012" },
+        "related_card": 0,
+        "power": "1",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "legality": "Legal", "name": "Modern" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/m12/145.jpg",
+        "id": "55328ae1ee2ded225380bc45"
+      },
+      "name": "Grim Lavamancer",
+      "quantity": 2,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55bd1b30f66715b801df7ace",
+      "card": {
+        "_id": "55bd1b30f66715b801df7ace",
+        "name": "Lightning Bolt",
+        "type": "Instant",
+        "subtype": null,
+        "rarity": "Uncommon",
+        "cmc": 1,
+        "loyalty": null,
+        "power": null,
+        "toughness": null,
+        "cost": "R",
+        "number": 122,
+        "set_code": "MM2",
+        "token": false,
+        "created_at": "2015-08-01T19:47:13.629Z",
+        "set_id": {
+          "_id": "55bd21bd6461740073000047",
+          "slug": "modern-masters-2015-edition"
+        },
+        "slug": "lightning-bolt",
+        "updated_at": "2015-08-01T20:25:45.664Z",
+        "formats": [
+          { "legality": "Legal", "name": "Modern" },
+          { "legality": "Legal", "name": "Vintage" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/mm2/122.jpg",
+        "id": "55bd1b30f66715b801df7ace"
+      },
+      "name": "Lightning Bolt",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328c117b48084d56257915",
+      "card": {
+        "_id": "55328c117b48084d56257915",
+        "loyalty": null,
+        "rarity": "Common",
+        "cost": "R",
+        "power": null,
+        "created_at": "2015-04-29T01:28:26.318Z",
+        "related_card": 0,
+        "type": "Sorcery",
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcd2",
+          "slug": "vintage-masters"
+        },
+        "toughness": null,
+        "name": "Chain Lightning",
+        "set_code": "VMA",
+        "updated_at": "2015-05-09T15:51:48.982Z",
+        "token": false,
+        "number": 153,
+        "cmc": 1,
+        "slug": "chain-lightning",
+        "subtype": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/vma/153.jpg",
+        "id": "55328c117b48084d56257915"
+      },
+      "name": "Chain Lightning",
+      "quantity": 3,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55419a9e1853387dfcf1a055",
+      "card": {
+        "_id": "55419a9e1853387dfcf1a055",
+        "set_code": "DTK",
+        "toughness": null,
+        "rarity": "Rare",
+        "name": "Atarka's Command",
+        "power": null,
+        "loyalty": null,
+        "number": 213,
+        "slug": "atarka-s-command",
+        "type": "Instant",
+        "created_at": "2015-05-01T20:40:38.356Z",
+        "cmc": 2,
+        "set_id": {
+          "_id": "5543dfbf646174009c000012",
+          "slug": "dragons-of-tarkir"
+        },
+        "subtype": null,
+        "cost": "RG",
+        "updated_at": "2015-05-10T00:59:44.364Z",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["red", "green"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/dtk/213.jpg",
+        "id": "55419a9e1853387dfcf1a055"
+      },
+      "name": "Atarka's Command",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red", "green"]
+    },
+    {
+      "_id": "55328bf67b48084d56257223",
+      "card": {
+        "_id": "55328bf67b48084d56257223",
+        "cost": "2R",
+        "slug": "rift-bolt",
+        "rarity": "Common",
+        "cmc": 3,
+        "type": "Sorcery",
+        "updated_at": "2015-05-09T15:51:46.678Z",
+        "power": null,
+        "set_id": {
+          "_id": "5532cc0260b6eccc396ffc80",
+          "slug": "modern-masters"
+        },
+        "related_card": 0,
+        "toughness": null,
+        "loyalty": null,
+        "set_code": "MMA",
+        "created_at": "2015-04-29T01:28:52.302Z",
+        "number": 126,
+        "subtype": null,
+        "token": false,
+        "name": "Rift Bolt",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/mma/126.jpg",
+        "id": "55328bf67b48084d56257223"
+      },
+      "name": "Rift Bolt",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328bf67b48084d56257217",
+      "card": {
+        "_id": "55328bf67b48084d56257217",
+        "set_id": {
+          "_id": "5532cc0260b6eccc396ffc80",
+          "slug": "modern-masters"
+        },
+        "updated_at": "2015-05-09T15:51:38.283Z",
+        "power": null,
+        "created_at": "2015-04-29T01:28:20.774Z",
+        "name": "Lava Spike",
+        "related_card": 0,
+        "toughness": null,
+        "loyalty": null,
+        "rarity": "Common",
+        "cmc": 1,
+        "slug": "lava-spike",
+        "type": "Sorcery",
+        "token": false,
+        "subtype": "Arcane",
+        "number": 121,
+        "cost": "R",
+        "set_code": "MMA",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/mma/121.jpg",
+        "id": "55328bf67b48084d56257217"
+      },
+      "name": "Lava Spike",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328c027b48084d56257578",
+      "card": {
+        "_id": "55328c027b48084d56257578",
+        "updated_at": "2015-05-09T15:51:48.068Z",
+        "set_code": "DDK",
+        "toughness": null,
+        "loyalty": null,
+        "subtype": null,
+        "cmc": 1,
+        "slug": "bump-in-the-night",
+        "created_at": "2015-04-29T01:28:22.962Z",
+        "number": 57,
+        "rarity": "Common",
+        "type": "Sorcery",
+        "name": "Bump in the Night",
+        "token": false,
+        "related_card": 0,
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcb5",
+          "slug": "duel-decks-sorin-vs-tibalt"
+        },
+        "cost": "B",
+        "power": null,
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["black"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/ddk/57.jpg",
+        "id": "55328c027b48084d56257578"
+      },
+      "name": "Bump in the Night",
+      "quantity": 3,
+      "board": "mainboard",
+      "colors": ["black"]
+    },
+    {
+      "_id": "55328ae2ee2ded225380bd02",
+      "card": {
+        "_id": "55328ae2ee2ded225380bd02",
+        "updated_at": "2015-05-09T15:51:12.534Z",
+        "related_card": 0,
+        "set_code": "RTR",
+        "token": false,
+        "number": 184,
+        "subtype": null,
+        "slug": "rakdos-charm",
+        "name": "Rakdos Charm",
+        "cost": "BR",
+        "loyalty": null,
+        "toughness": null,
+        "type": "Instant",
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcea",
+          "slug": "return-to-ravnica"
+        },
+        "created_at": "2015-04-29T01:28:31.264Z",
+        "power": null,
+        "cmc": 2,
+        "rarity": "Uncommon",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red", "black"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/rtr/184.jpg",
+        "id": "55328ae2ee2ded225380bd02"
+      },
+      "name": "Rakdos Charm",
+      "quantity": 3,
+      "board": "sideboard",
+      "colors": ["red", "black"]
+    },
+    {
+      "_id": "55328c047b48084d56257633",
+      "card": {
+        "_id": "55328c047b48084d56257633",
+        "type": "Instant",
+        "number": 192,
+        "rarity": "Uncommon",
+        "token": false,
+        "toughness": null,
+        "cmc": 2,
+        "name": "Destructive Revelry",
+        "power": null,
+        "created_at": "2015-04-29T01:28:53.437Z",
+        "set_code": "THS",
+        "cost": "RG",
+        "slug": "destructive-revelry",
+        "related_card": 0,
+        "subtype": null,
+        "set_id": { "_id": "5532cc0360b6eccc396ffcd1", "slug": "theros" },
+        "loyalty": null,
+        "updated_at": "2015-05-09T15:51:48.062Z",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "legality": "Legal", "name": "Standard" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["red", "green"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/ths/192.jpg",
+        "id": "55328c047b48084d56257633"
+      },
+      "name": "Destructive Revelry",
+      "quantity": 4,
+      "board": "sideboard",
+      "colors": ["red", "green"]
+    },
+    {
+      "_id": "55328bec7b48084d56257079",
+      "card": {
+        "_id": "55328bec7b48084d56257079",
+        "cost": "1R",
+        "power": null,
+        "subtype": null,
+        "name": "Skullcrack",
+        "loyalty": null,
+        "rarity": "Uncommon",
+        "cmc": 2,
+        "set_id": { "_id": "5532cc0260b6eccc396ffc9a", "slug": "gatecrash" },
+        "number": 106,
+        "related_card": 0,
+        "set_code": "GTC",
+        "toughness": null,
+        "created_at": "2015-04-29T01:28:50.491Z",
+        "token": false,
+        "slug": "skullcrack",
+        "updated_at": "2015-05-09T15:51:37.726Z",
+        "type": "Instant",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/gtc/106.jpg",
+        "id": "55328bec7b48084d56257079"
+      },
+      "name": "Skullcrack",
+      "quantity": 2,
+      "board": "sideboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55419a9d1853387dfcf19ff5",
+      "card": {
+        "_id": "55419a9d1853387dfcf19ff5",
+        "toughness": null,
+        "set_id": {
+          "_id": "5543dfbf646174009c000012",
+          "slug": "dragons-of-tarkir"
+        },
+        "loyalty": null,
+        "updated_at": "2015-05-10T00:59:39.285Z",
+        "subtype": null,
+        "number": 117,
+        "type": "Sorcery",
+        "slug": "self-inflicted-wound",
+        "created_at": "2015-05-01T20:40:38.180Z",
+        "cmc": 2,
+        "cost": "1B",
+        "rarity": "Uncommon",
+        "set_code": "DTK",
+        "power": null,
+        "name": "Self-Inflicted Wound",
+        "formats": [
+          { "legality": "Legal", "name": "Vintage" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["black"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/dtk/117.jpg",
+        "id": "55419a9d1853387dfcf19ff5"
+      },
+      "name": "Self-Inflicted Wound",
+      "quantity": 2,
+      "board": "sideboard",
+      "colors": ["black"]
+    },
+    {
+      "_id": "55328bf67b48084d56257219",
+      "card": {
+        "_id": "55328bf67b48084d56257219",
+        "power": null,
+        "subtype": null,
+        "updated_at": "2015-05-09T15:51:46.677Z",
+        "loyalty": null,
+        "token": false,
+        "related_card": 0,
+        "type": "Enchantment",
+        "toughness": null,
+        "cost": "2R",
+        "created_at": "2015-04-29T01:28:52.301Z",
+        "cmc": 3,
+        "name": "Blood Moon",
+        "set_id": {
+          "_id": "5532cc0260b6eccc396ffc80",
+          "slug": "modern-masters"
+        },
+        "rarity": "Rare",
+        "slug": "blood-moon",
+        "number": 106,
+        "set_code": "MMA",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/mma/106.jpg",
+        "id": "55328bf67b48084d56257219"
+      },
+      "name": "Blood Moon",
+      "quantity": 2,
+      "board": "sideboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "56a983a04d62c3320ee98811",
+      "card": {
+        "_id": "56a983a04d62c3320ee98811",
+        "slug": "wooded-foothills",
+        "name": "Wooded Foothills",
+        "cost": "0",
+        "cmc": 0,
+        "type": "Land",
+        "subtype": null,
+        "rarity": "Mythic Rare",
+        "set_code": "EXP",
+        "set_id": {
+          "_id": "56a98390b31d44310e64b43e",
+          "slug": "zendikar-expeditions"
+        },
+        "number": 19,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/exp/19.jpg",
+        "id": "56a983a04d62c3320ee98811"
+      },
+      "name": "Wooded Foothills",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "56a983a04d62c3320ee9880e",
+      "card": {
+        "_id": "56a983a04d62c3320ee9880e",
+        "slug": "bloodstained-mire",
+        "name": "Bloodstained Mire",
+        "cost": "0",
+        "cmc": 0,
+        "type": "Land",
+        "subtype": null,
+        "rarity": "Mythic Rare",
+        "set_code": "EXP",
+        "set_id": {
+          "_id": "56a98390b31d44310e64b43e",
+          "slug": "zendikar-expeditions"
+        },
+        "number": 18,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/exp/18.jpg",
+        "id": "56a983a04d62c3320ee9880e"
+      },
+      "name": "Bloodstained Mire",
+      "quantity": 4,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "55328ae7ee2ded225380c15c",
+      "card": {
+        "_id": "55328ae7ee2ded225380c15c",
+        "set_id": {
+          "_id": "5532cc0260b6eccc396ffc7b",
+          "slug": "scars-of-mirrodin"
+        },
+        "slug": "copperline-gorge",
+        "token": false,
+        "set_code": "SOM",
+        "cmc": 0,
+        "cost": "0",
+        "number": 225,
+        "created_at": "2015-04-29T01:28:36.206Z",
+        "power": null,
+        "subtype": null,
+        "type": "Land",
+        "related_card": 0,
+        "loyalty": null,
+        "toughness": null,
+        "rarity": "Rare",
+        "updated_at": "2015-05-09T15:51:35.436Z",
+        "name": "Copperline Gorge",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/som/225.jpg",
+        "id": "55328ae7ee2ded225380c15c"
+      },
+      "name": "Copperline Gorge",
+      "quantity": 2,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "56a983a04d62c3320ee9880a",
+      "card": {
+        "_id": "56a983a04d62c3320ee9880a",
+        "slug": "stomping-ground",
+        "name": "Stomping Ground",
+        "cost": "0",
+        "cmc": 0,
+        "type": "Land",
+        "subtype": "Mountain",
+        "rarity": "Mythic Rare",
+        "set_code": "EXP",
+        "set_id": {
+          "_id": "56a98390b31d44310e64b43e",
+          "slug": "zendikar-expeditions"
+        },
+        "number": 9,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/exp/9.jpg",
+        "id": "56a983a04d62c3320ee9880a"
+      },
+      "name": "Stomping Ground",
+      "quantity": 2,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "56a983a04d62c3320ee98804",
+      "card": {
+        "_id": "56a983a04d62c3320ee98804",
+        "slug": "blood-crypt",
+        "name": "Blood Crypt",
+        "cost": "0",
+        "cmc": 0,
+        "type": "Land",
+        "subtype": "Swamp",
+        "rarity": "Mythic Rare",
+        "set_code": "EXP",
+        "set_id": {
+          "_id": "56a98390b31d44310e64b43e",
+          "slug": "zendikar-expeditions"
+        },
+        "number": 8,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/exp/8.jpg",
+        "id": "56a983a04d62c3320ee98804"
+      },
+      "name": "Blood Crypt",
+      "quantity": 3,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "56a9694861f7e9810c26a35c",
+      "card": {
+        "_id": "56a9694861f7e9810c26a35c",
+        "slug": "mountain",
+        "name": "Mountain",
+        "cost": "0",
+        "cmc": 0,
+        "type": "Basic Land",
+        "subtype": "Mountain",
+        "rarity": "",
+        "set_code": "BFZ",
+        "set_id": {
+          "_id": "56a9680f567459700c599c52",
+          "slug": "battle-for-zendikar"
+        },
+        "number": 265,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "name": "Legacy", "legality": "Legal" },
+          { "name": "Modern", "legality": "Legal" },
+          { "name": "Standard", "legality": "Legal" },
+          { "name": "Commander", "legality": "Legal" }
+        ],
+        "colors": ["colorless"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/bfz/265.jpg",
+        "id": "56a9694861f7e9810c26a35c"
+      },
+      "name": "Mountain",
+      "quantity": 5,
+      "board": "mainboard",
+      "colors": ["colorless"]
+    },
+    {
+      "_id": "55bd1b7ca793b06017b0c3fa",
+      "card": {
+        "_id": "55bd1b7ca793b06017b0c3fa",
+        "name": "Smash to Smithereens",
+        "type": "Instant",
+        "subtype": null,
+        "rarity": "Common",
+        "cmc": 2,
+        "loyalty": null,
+        "power": null,
+        "toughness": null,
+        "cost": "1R",
+        "number": 163,
+        "set_code": "ORI",
+        "token": false,
+        "created_at": "2015-08-01T19:29:47.235Z",
+        "slug": "smash-to-smithereens",
+        "updated_at": "2015-08-01T20:04:33.100Z",
+        "set_id": {
+          "_id": "55bd20326461740073000046",
+          "slug": "magic-origins"
+        },
+        "formats": [
+          {
+            "legality": "Legal",
+            "name": "Standard",
+            "_id": "55bd1b7ca793b06017b0c3ff"
+          },
+          {
+            "legality": "Legal",
+            "name": "Modern",
+            "_id": "55bd1b7ca793b06017b0c3fe"
+          },
+          {
+            "legality": "Legal",
+            "name": "Vintage",
+            "_id": "55bd1b7ca793b06017b0c3fd"
+          },
+          {
+            "legality": "Legal",
+            "name": "Legacy",
+            "_id": "55bd1b7ca793b06017b0c3fc"
+          },
+          {
+            "name": "Commander",
+            "legality": "Legal",
+            "_id": "55bd1b7ca793b06017b0c3fb"
+          }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/ori/163.jpg",
+        "id": "55bd1b7ca793b06017b0c3fa"
+      },
+      "name": "Smash to Smithereens",
+      "quantity": 2,
+      "board": "sideboard",
+      "colors": ["red"]
+    },
+    {
+      "_id": "55328aeaee2ded225380c34f",
+      "card": {
+        "_id": "55328aeaee2ded225380c34f",
+        "loyalty": null,
+        "set_code": "DDI",
+        "cmc": 2,
+        "related_card": 0,
+        "name": "Searing Blaze",
+        "rarity": "Common",
+        "power": null,
+        "type": "Instant",
+        "created_at": "2015-04-29T01:28:15.103Z",
+        "subtype": null,
+        "toughness": null,
+        "cost": "RR",
+        "token": false,
+        "updated_at": "2015-05-09T15:51:41.728Z",
+        "number": 67,
+        "set_id": {
+          "_id": "5532cc0360b6eccc396ffcce",
+          "slug": "duel-decks-venser-vs-koth"
+        },
+        "slug": "searing-blaze",
+        "formats": [
+          { "name": "Vintage", "legality": "Legal" },
+          { "legality": "Legal", "name": "Legacy" },
+          { "legality": "Legal", "name": "Modern" },
+          { "legality": "Legal", "name": "Commander" }
+        ],
+        "colors": ["red"],
+        "side": "",
+        "url": "http://cdn.fateseal.com/cards/ddi/67.jpg",
+        "id": "55328aeaee2ded225380c34f"
+      },
+      "name": "Searing Blaze",
+      "board": "mainboard",
+      "quantity": 4,
+      "colors": ["red"]
+    }
+  ]
+}

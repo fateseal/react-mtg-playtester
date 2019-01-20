@@ -1,0 +1,375 @@
+:root {
+  --space1: 4px;
+  --space2: 8px;
+  --space3: 16px;
+  --space4: 24px;
+  --space5: 32px;
+
+  --f1: 14px;
+  --f2: 16px;
+  --f3: 18px;
+
+  --white: #fff;
+  --black: #000;
+  --gray-dark: #222;
+  --gray: #666;
+  --gray-light: #999;
+
+  --input-color: var(--gray-light);
+  --input-border-color: var(--gray-light);
+  --input-border-color-hover: var(--white);
+  --input-color-hover: var(--white);
+
+  --btn-radius: 4px;
+}
+
+.rmp--sandbox-overlay *,
+.rmp--sandbox * {
+  box-sizing: border-box;
+}
+
+.rmp--sandbox,
+.rmp--sandbox-overlay {
+  font-family: sans-serif;
+}
+
+.rmp--kbd {
+  font-family: sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  padding: var(--space1) var(--space2);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  color: var(--white);
+}
+
+.rmp--card-modal-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rmp--sandbox {
+  background: var(--gray-dark);
+  padding: var(--space2);
+}
+
+.rmp--sandbox-bottom-zones {
+  display: grid;
+  grid-gap: var(--space2);
+  grid-template-columns: 1fr repeat(3, 120px);
+}
+
+.rmp--sandbox-bottom-zones.has-commander {
+  grid-template-columns: 1fr repeat(4, 120px);
+}
+
+.rmp--sandbox {
+}
+
+.rmp--sandbox-battlefield {
+  height: 60vh;
+}
+
+.rmp--sandbox-actions {
+}
+
+/* header */
+
+.rmp--header {
+  display: flex;
+}
+
+.rmp--header-values {
+  display: flex;
+  margin-left: auto;
+}
+
+.rmp--header-title {
+  color: var(--white);
+}
+
+/* label */
+
+.rmp--label {
+  color: var(--white);
+  margin-bottom: var(--space1);
+  display: block;
+  font-size: var(--f2);
+}
+
+/* game values */
+
+.rmp--game-value {
+  margin-right: var(--space3);
+  display: flex;
+  align-items: center;
+}
+
+.rmp--game-value label {
+  color: var(--white);
+  margin-right: var(--space2);
+}
+
+/* zone */
+
+.rmp--zone {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rmp--zone-header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-top: var(--space2);
+  padding-bottom: var(--space2);
+  flex: 0 0 auto;
+}
+
+.rmp--zone-title {
+  color: var(--gray-light);
+  font-size: var(--f2);
+  margin: 0;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.rmp--zone-box {
+  flex: 1;
+  border: 1px dashed var(--gray);
+  border-radius: 4px;
+  height: 100%;
+  padding: var(--space1);
+  position: relative;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+  margin: 0;
+  list-style: none;
+}
+
+.rmp--zone-box--text-view {
+  overflow-y: hidden;
+}
+
+.rmp--zone-box.is-dropping {
+  border-color: var(--white);
+}
+
+/* footer */
+
+.rmp--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space3);
+  padding-bottom: var(--space3);
+}
+
+.rmp--footer-action-list {
+  display: flex;
+  align-items: center;
+}
+
+.rmp--footer-action-item + .rmp--footer-action-item {
+  margin-left: var(--space2);
+}
+
+.rmp--footer-turn {
+  color: var(--gray-light);
+  font-size: var(--f1);
+  display: inline-block;
+  padding-left: var(--space3);
+  padding-right: var(--space3);
+}
+
+/* card */
+
+.rmp--card {
+}
+
+.rmp--card-stats {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray-light);
+}
+
+.rmp--card-img {
+  border: 2px solid var(--black);
+  transition: 0.2s;
+  max-width: 100%;
+}
+
+.rmp--card-img:hover {
+  border-color: var(--gray-dark);
+  transform: scale(1.1);
+}
+
+/* btn group */
+
+.rmp--btn-group .rmp--btn {
+  border-radius: 0;
+}
+
+.rmp--btn-group .rmp--btn:not(:first-child) {
+  margin-left: -1px;
+}
+
+.rmp--btn-group .rmp--btn:first-child {
+  border-top-left-radius: var(--btn-radius);
+  border-bottom-left-radius: var(--btn-radius);
+}
+
+.rmp--btn-group .rmp--btn:last-child {
+  border-top-right-radius: var(--btn-radius);
+  border-bottom-right-radius: var(--btn-radius);
+}
+
+/* input group */
+
+.rmp--input-group {
+  display: flex;
+}
+
+.rmp--input-group .rmp--text-input {
+  width: 3em;
+  text-align: center;
+}
+
+.rmp--text-input {
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 1em;
+  line-height: 1;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--btn-radius);
+  background: none;
+  color: var(--input-color);
+  display: block;
+  width: 100%;
+}
+
+.rmp--btn:hover,
+.rmp--select:hover,
+.rmp--text-input:hover {
+  border-color: var(--input-border-color-hover);
+  color: var(--input-color-hover);
+}
+
+.rmp--btn {
+  padding: 8px;
+  font-size: 1em;
+  line-height: 1;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--btn-radius);
+  background: none;
+  color: var(--input-color);
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.rmp--btn--link {
+  border: 0;
+}
+
+.rmp--select {
+  padding: 8px;
+  font-size: 1em;
+  line-height: 1;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--btn-radius);
+  background: none;
+  color: var(--input-color);
+  appearance: none;
+  width: 100%;
+  transition: 0.2s;
+}
+
+/* modal */
+
+.rmp--sandbox-overlay {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.rmp--sandbox-modal {
+  max-width: 80vw;
+  padding: var(--space4);
+}
+
+.rmp--modal-header {
+  margin-bottom: var(--space3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.rmp--modal-title {
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* card modal */
+
+.rmp--card-modal {
+  display: flex;
+  color: var(--white);
+}
+
+.rmp--card-modal-image {
+  margin-right: var(--space3);
+  flex: 0 0 200px;
+}
+
+.rmp--card-modal-actions-item {
+  margin-bottom: var(--space4);
+}
+
+.rmp--card-modal-values {
+  display: flex;
+}
+
+.rmp--card-value {
+  margin-right: var(--space2);
+  margin-bottom: var(--space2);
+}
+
+.rmp--card-modal-counter-btn {
+  margin-bottom: var(--space2);
+}
+
+.rmp--card-modal-counters {
+}
+
+.rmp--shortcuts-modal {
+  display: flex;
+}
+
+.rmp--shortcuts-list {
+  flex: 0 0 50%;
+}
+
+.rmp--shortcuts-title {
+  color: var(--white);
+  text-align: left;
+  padding: var(--space2);
+}
+
+.rmp--shortcuts-keys {
+  text-align: right;
+  padding: var(--space2);
+}
+.rmp--shortcuts-label {
+  color: var(--white);
+  padding: var(--space2);
+}
