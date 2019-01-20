@@ -23,13 +23,13 @@
   --btn-radius: 4px;
 }
 
-.rmp--sandbox-overlay *,
-.rmp--sandbox * {
+.rmp--app-overlay *,
+.rmp--app * {
   box-sizing: border-box;
 }
 
-.rmp--sandbox,
-.rmp--sandbox-overlay {
+.rmp--app,
+.rmp--app-overlay {
   font-family: sans-serif;
 }
 
@@ -49,29 +49,29 @@
   border: 0;
 }
 
-.rmp--sandbox {
+.rmp--app {
   background: var(--gray-dark);
   padding: var(--space2);
 }
 
-.rmp--sandbox-bottom-zones {
+.rmp--app-bottom-zones {
   display: grid;
   grid-gap: var(--space2);
   grid-template-columns: 1fr repeat(3, 120px);
 }
 
-.rmp--sandbox-bottom-zones.has-commander {
+.rmp--app-bottom-zones.has-commander {
   grid-template-columns: 1fr repeat(4, 120px);
 }
 
-.rmp--sandbox {
+.rmp--app {
 }
 
-.rmp--sandbox-battlefield {
+.rmp--app-battlefield {
   height: 60vh;
 }
 
-.rmp--sandbox-actions {
+.rmp--app-actions {
 }
 
 /* header */
@@ -289,7 +289,7 @@
 
 /* modal */
 
-.rmp--sandbox-overlay {
+.rmp--app-overlay {
   display: flex;
   align-content: center;
   justify-content: center;
@@ -302,7 +302,7 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.rmp--sandbox-modal {
+.rmp--app-modal {
   max-width: 80vw;
   padding: var(--space4);
 }

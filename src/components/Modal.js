@@ -10,7 +10,6 @@ const Modal = ({
   dispatch,
   title,
   isOpen,
-  onRequestClose,
   onAfterOpen,
   closeTimeoutMS,
   children
@@ -20,8 +19,8 @@ const Modal = ({
     onAfterOpen={onAfterOpen}
     onRequestClose={e => dispatch(closeModal())}
     closeTimeoutMS={closeTimeoutMS}
-    className="rmp--sandbox-modal"
-    overlayclassName="rmp--sandbox-overlay"
+    className="rmp--app-modal"
+    overlayclassName="rmp--app-overlay"
   >
     <header className="rmp--modal-header">
       {title && <h2 className="rmp--modal-title" children={title} />}

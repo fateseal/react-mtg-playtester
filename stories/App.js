@@ -13,7 +13,7 @@ import { reducer as sandboxReducer } from '../src';
 
 const store = createStore(
   combineReducers({
-    sandbox: sandboxReducer
+    playtester: sandboxReducer
   }),
   {},
   composeWithDevTools(applyMiddleware(thunk))

@@ -34,7 +34,7 @@ describe('playtesterActions', () => {
     it('moves a card to the bottom if it goes to hand', () => {
       const dispatch = jest.fn();
       const getState = () => ({
-        sandbox: {
+        playtester: {
           [zoneTypes.BATTLEFIELD]: []
         }
       });
@@ -60,7 +60,7 @@ describe('playtesterActions', () => {
     it('untaps all cards unless its in the battlefield', () => {
       const dispatch = jest.fn();
       const getState = () => ({
-        sandbox: {
+        playtester: {
           [zoneTypes.BATTLEFIELD]: []
         }
       });
@@ -86,7 +86,7 @@ describe('playtesterActions', () => {
     it('returns a move card thunk', () => {
       const dispatch = jest.fn();
       const getState = () => ({
-        sandbox: { [zoneTypes.BATTLEFIELD]: [] }
+        playtester: { [zoneTypes.BATTLEFIELD]: [] }
       });
 
       const card = {

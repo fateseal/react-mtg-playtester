@@ -8,7 +8,7 @@ import {
   decrementGameValue
 } from '../actions/playtesterActions';
 
-import { getSandbox } from '../reducers/playtester';
+import { getPlaytester } from '../reducers/playtester';
 
 import GameValue from './GameValue';
 
@@ -56,7 +56,7 @@ Header.propTypes = {
 };
 
 const select = state => {
-  const { life, turn, poison, energy } = getSandbox(state);
+  const { life, turn, poison, energy } = getPlaytester(state);
 
   return {
     life,

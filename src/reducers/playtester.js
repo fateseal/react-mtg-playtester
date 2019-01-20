@@ -161,16 +161,17 @@ export default function playtester(state = initialState, action) {
   }
 }
 
-export const getSandbox = state => state.sandbox;
+export const getPlaytester = state => state.playtester;
 
 export const getCardsByZone = (state, zone) => {
-  const sb = getSandbox(state);
+  const sb = getPlaytester(state);
   return sb[zone].map(id => sb.cardsById[id]);
 };
 
-export const getCardById = (state, id) => getSandbox(state).cardsById[id];
+export const getCardById = (state, id) => getPlaytester(state).cardsById[id];
 
 export const getModalCard = state =>
-  getCardById(state, getSandbox(state).modalCardId);
+  getCardById(state, getPlaytester(state).modalCardId);
 
-export const isModalOpen = (state, modal) => getSandbox(state).modal === modal;
+export const isModalOpen = (state, modal) =>
+  getPlaytester(state).modal === modal;

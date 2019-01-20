@@ -55,17 +55,17 @@ class Playtester extends Component {
       <PlaytesterShortcuts>
         <section
           id="react-mtg-playtester"
-          className={cx('rmp--sandbox', {
+          className={cx('rmp--app', {
             'has-modal': isModalOpen
           })}
         >
           <Header headerLeft={headerLeft} />
-          <div className="rmp--sandbox-battlefield">
+          <div className="rmp--app-battlefield">
             <Zone name={BATTLEFIELD} />
           </div>
-          <div className="rmp--sandbox-bottom">
+          <div className="rmp--app-bottom">
             <div
-              className={cx('rmp--sandbox-bottom-zones', {
+              className={cx('rmp--app-bottom-zones', {
                 'has-commander': isCommander
               })}
             >

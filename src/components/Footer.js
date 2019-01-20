@@ -14,7 +14,7 @@ import { SHORTCUTS_MODAL } from '../constants/modalTypes';
 import Button from './PlaytesterButton';
 import TutorDropdown from './TutorDropdown';
 
-import { getSandbox } from '../reducers/playtester';
+import { getPlaytester } from '../reducers/playtester';
 
 const Footer = ({
   reset,
@@ -65,7 +65,7 @@ const Footer = ({
 };
 
 const select = state => ({
-  turn: getSandbox(state).turn
+  turn: getPlaytester(state).turn
 });
 
 const actions = {
