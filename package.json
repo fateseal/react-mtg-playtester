@@ -27,7 +27,7 @@
   "main": "./dist/index.js",
   "module": "./es/index.js",
   "scripts": {
-    "start": "rollup -c -w",
+    "start": "npm run storybook",
     "build": "NODE_ENV=production rollup -c",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{css,js}\"",
