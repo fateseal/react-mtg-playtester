@@ -1,6 +1,6 @@
 # react-mtg-playtester
 
-> playtest mtg decks with react-dnd. [See the storybook demo](https://fateseal.github.io/react-mtg-playtester)
+> playtest mtg decks with react-dnd. [See the storybook demo](https://fateseal.github.io/react-mtg-playtester?addons=0)
 
 
 ## Requirements
