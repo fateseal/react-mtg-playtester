@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/fateseal/react-mtg-playtester.git"
   },
-  "homepage": "https://fateseal.github.io/playtester",
+  "homepage": "https://react-mtg-playtester.netlify.com",
   "files": [
     "es",
     "dist",
@@ -33,7 +33,6 @@
     "format": "prettier --write \"src/**/*.{css,js}\"",
     "prepublishOnly": "npm test && npm run build",
     "storybook": "start-storybook -p 6006",
-    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -64,7 +63,6 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
-    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "prettier": "^1.7.4",
     "react": "^16.7.0",
