@@ -5,6 +5,8 @@ import { usePlaytester } from '../use-playtester';
 
 // ReactModal.setAppElement('#react-mtg-playtester');
 
+ReactModal.defaultStyles = {};
+
 const Modal = ({ title, isOpen, onAfterOpen, closeTimeoutMS, children }) => {
   const [state, { closeModal }] = usePlaytester();
 

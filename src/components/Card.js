@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 import * as zoneTypes from '../constants/zoneTypes';
 import { CARD_MODAL } from '../constants/modalTypes';
-import { CARD } from '../constants/itemTypes';
 
 import CardShortcuts from './CardShortcuts';
 
@@ -27,16 +26,12 @@ const Card = ({
   imageUrl,
   name,
   cardBackUrl,
-  connectDragSource,
-  isDragging,
   isTapped,
   index,
-  left,
-  top,
+  type,
   power,
   toughness,
   counters,
-  offset,
   style
 }) => {
   const focusableElem = null;
@@ -69,10 +64,14 @@ const Card = ({
     }
 
     if (zone === zoneTypes.HAND) {
+      const toZone = type.match(/land/i)
+        ? zoneTypes.LAND
+        : zoneTypes.BATTLEFIELD;
+
       return moveCard({
         id,
         fromZone: zone,
-        toZone: zoneTypes.BATTLEFIELD
+        toZone
       });
     }
   };
@@ -97,71 +96,62 @@ const Card = ({
 
   const renderCardImage = () => {
     const src = zone === zoneTypes.LIBRARY ? cardBackUrl : imageUrl;
-
     return <img src={src} alt={name} className="rmp--card-img" />;
   };
 
   const isBattlefield = zone === zoneTypes.BATTLEFIELD;
   const isHand = zone === zoneTypes.HAND;
+  const isLand = zone === zoneTypes.LAND;
 
-  const sourceStyles = {
+  const isStacked = !isBattlefield && !isHand && !isLand;
+
+  const getStyles = (isDragging, itemStyles) => ({
     ...style,
-    marginLeft: isHand && index > 0 ? -offset : undefined,
     display: 'inline-block',
     maxWidth: 112,
-    position: isHand ? 'relative' : 'absolute',
-    left: isBattlefield ? left : undefined,
-    top: isBattlefield ? top : undefined,
-    zIndex: isBattlefield || isHand ? index : 1000 - index,
+    position: isStacked ? 'absolute' : 'relative',
+    zIndex: isStacked ? index : 1000 - index,
     opacity: isDragging ? 0.5 : 1,
     transform: isBattlefield && isTapped ? 'rotate(90deg)' : 'none',
-    transition: 'transform .2s'
-  };
+    transition: 'transform .2s',
+    ...itemStyles
+  });
 
-  // wrapped in span to fix https://github.com/react-dnd/react-dnd/issues/998#issuecomment-435322873
-  return connectDragSource(
-    <span>
-      <li
-        ref={cardRef}
-        onContextMenu={handleContextMenu}
-        style={sourceStyles}
-        onClick={handleClick}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        className="rmp--card"
-      >
-        {/* <CardShortcuts id={id} zone={zone}> */}
-        {renderCardImage()}
-        {/* </CardShortcuts> */}
-        {isBattlefield && (
-          <CardStats power={power} toughness={toughness} counters={counters} />
-        )}
-      </li>
-    </span>
+  return (
+    <Draggable key={id} draggableId={id} index={index}>
+      {(provided, snapshot) => (
+        <li
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          onContextMenu={handleContextMenu}
+          style={getStyles(snapshot.isDragging, provided.draggableProps.style)}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+          className="rmp--card"
+        >
+          {/* <CardShortcuts id={id} zone={zone}> */}
+          {renderCardImage()}
+          {/* </CardShortcuts> */}
+          {isBattlefield && (
+            <CardStats
+              power={power}
+              toughness={toughness}
+              counters={counters}
+            />
+          )}
+        </li>
+      )}
+    </Draggable>
   );
 };
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   zone: PropTypes.oneOf(zoneTypes.zoneNames).isRequired
 };
 
-const cardSource = {
-  beginDrag(props) {
-    const { id, zone, left, top } = props;
-    return { id, zone, left, top };
-  }
-};
-
-function collect(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  };
-}
-
-const withDragSource = DragSource(CARD, cardSource, collect);
-
-export default withDragSource(Card);
+export default Card;

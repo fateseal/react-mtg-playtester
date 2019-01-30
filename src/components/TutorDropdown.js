@@ -15,7 +15,7 @@ const TutorDropdown = () => {
 
   const handleChange = event => {
     moveCard({
-      id: parseInt(event.target.value, 10),
+      id: event.target.value,
       fromZone: LIBRARY,
       toZone: HAND
     });

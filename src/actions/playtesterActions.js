@@ -1,6 +1,7 @@
+import uuid from 'uuid/v1';
+
 import * as types from '../constants/actionTypes';
 import { HAND, LIBRARY, BATTLEFIELD, COMMAND } from '../constants/zoneTypes';
-
 import { TUTOR_MODAL } from '../constants/modalTypes';
 
 export function reset(resetMulligans = true) {
@@ -15,10 +16,8 @@ export function reset(resetMulligans = true) {
 }
 
 export function receiveCommander(card) {
-  return (dispatch, getState) => {
-    const { cardIds } = getState();
-
-    const id = cardIds[cardIds.length - 1] + 1;
+  return dispatch => {
+    const id = uuid();
 
     const commander = {
       card,
@@ -44,14 +43,18 @@ export function receiveCards(deckCards = []) {
   return dispatch => {
     let cardIds = [];
     const cardsById = deckCards.reduce((obj, deckCard, i) => {
-      cardIds.push(i);
+      const id = uuid();
+
+      cardIds.push(id);
+
       return {
         ...obj,
-        [i]: {
-          id: i,
+        [id]: {
+          id,
           left: 0,
           top: 0,
           zone: LIBRARY,
+          type: deckCard.card.type,
           counters: parseInt(deckCard.card.loyalty, 10) || 0,
           power: parseInt(deckCard.card.power, 10) || 0,
           toughness: parseInt(deckCard.card.toughness, 10) || 0,
@@ -122,30 +125,15 @@ export function setCardModalId(id) {
   };
 }
 
-export function moveCard({
-  id,
-  fromZone,
-  toZone,
-  toBottom = false,
-  left = 0,
-  top = 0
-}) {
-  return (dispatch, getState) => {
-    const cards = getState()[BATTLEFIELD];
-    const offset = cards.length;
-
-    left = left === 0 ? 50 * offset : left;
-
-    dispatch({
-      type: types.MOVE_CARD,
-      id,
-      fromZone,
-      toZone,
-      toBottom: toZone === HAND ? true : toBottom,
-      untap: toZone !== BATTLEFIELD,
-      left,
-      top
-    });
+export function moveCard({ id, fromZone, toZone, toBottom = false, index }) {
+  return {
+    type: types.MOVE_CARD,
+    id,
+    fromZone,
+    toZone,
+    index,
+    toBottom: toZone === HAND ? true : toBottom,
+    untap: toZone !== BATTLEFIELD
   };
 }
 

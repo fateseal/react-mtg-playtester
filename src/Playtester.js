@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import cx from 'classnames';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import { usePlaytester } from './use-playtester';
 import {
   BATTLEFIELD,
   HAND,
+  LAND,
   LIBRARY,
   GRAVEYARD,
   EXILE,
@@ -24,7 +24,7 @@ import PlaytesterShortcuts from './components/PlaytesterShortcuts';
 const Playtester = ({ cards = [], commander, headerLeft, cardBackUrl }) => {
   const [
     { modal },
-    { receiveCards, reset, receiveCommander, drawHand }
+    { receiveCards, reset, receiveCommander, drawHand, moveCard }
   ] = usePlaytester();
 
   useEffect(() => {
@@ -42,46 +42,68 @@ const Playtester = ({ cards = [], commander, headerLeft, cardBackUrl }) => {
   const hasModal = !!modal;
   const isCommander = !!commander;
 
+  const handleDragEnd = result => {
+    const { destination, source } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    // TODO: allow sorting by changing index
+
+    moveCard({
+      id: result.draggableId,
+      toZone: destination.droppableId,
+      fromZone: source.droppableId,
+      index: destination.index
+    });
+  };
+
   // <PlaytesterShortcuts>
   return (
-    <section
-      id="react-mtg-playtester"
-      className={cx('rmp--app', {
-        'has-modal': hasModal
-      })}
-    >
-      <Header headerLeft={headerLeft} />
-      <div className="rmp--app-battlefield">
-        <Zone name={BATTLEFIELD} />
-      </div>
-      <div className="rmp--app-bottom">
-        <div
-          className={cx('rmp--app-bottom-zones', {
-            'has-commander': isCommander
-          })}
-        >
-          <div>
-            <Zone name={HAND} />
-          </div>
-          <div>
-            <Zone name={LIBRARY} cardBackUrl={cardBackUrl} />
-          </div>
-          <div>
-            <Zone name={GRAVEYARD} />
-          </div>
-          <div>
-            <Zone name={EXILE} />
-          </div>
-          {isCommander && (
-            <div>
-              <Zone name={COMMAND} />
-            </div>
-          )}
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <section
+        id="react-mtg-playtester"
+        className={cx('rmp--app', {
+          'has-modal': hasModal
+        })}
+      >
+        <Header headerLeft={headerLeft} />
+        <div className="rmp--app-battlefield">
+          <Zone name={BATTLEFIELD} />
         </div>
-      </div>
-      <Footer />
-      <CardModal />
-    </section>
+        <div className="rmp--app-land">
+          <Zone name={LAND} />
+        </div>
+        <div className="rmp--app-bottom">
+          <div
+            className={cx('rmp--app-bottom-zones', {
+              'has-commander': isCommander
+            })}
+          >
+            <div>
+              <Zone name={HAND} />
+            </div>
+            <div>
+              <Zone name={LIBRARY} cardBackUrl={cardBackUrl} />
+            </div>
+            <div>
+              <Zone name={GRAVEYARD} />
+            </div>
+            <div>
+              <Zone name={EXILE} />
+            </div>
+            {isCommander && (
+              <div>
+                <Zone name={COMMAND} />
+              </div>
+            )}
+          </div>
+        </div>
+        <Footer />
+        <CardModal />
+      </section>
+    </DragDropContext>
   );
   //  </PlaytesterShortcuts>
 };
@@ -106,6 +128,4 @@ Playtester.propTypes = {
   )
 };
 
-const withBackend = DragDropContext(HTML5Backend);
-
-export default withBackend(Playtester);
+export default Playtester;

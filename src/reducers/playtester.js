@@ -4,6 +4,7 @@ import * as types from '../constants/actionTypes';
 import {
   BATTLEFIELD,
   HAND,
+  LAND,
   LIBRARY,
   GRAVEYARD,
   EXILE,
@@ -25,6 +26,7 @@ export const initialState = {
   cardIds: [],
   cardsById: {},
   [BATTLEFIELD]: [],
+  [LAND]: [],
   [HAND]: [],
   [LIBRARY]: [],
   [GRAVEYARD]: [],

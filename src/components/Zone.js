@@ -1,72 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { DropTarget } from 'react-dnd';
 import classnames from 'classnames';
+import { Droppable } from 'react-beautiful-dnd';
 
 import { usePlaytester } from '../use-playtester';
-
-import { CARD } from '../constants/itemTypes';
 import * as zoneTypes from '../constants/zoneTypes';
 import { getCardsByZone } from '../reducers/playtester';
-
 import Card from './Card';
 
-class Zone extends Component {
-  state = {
-    containerWidth: 0
-  };
+const Zone = ({ name, cardBackUrl, cardWidth = 112 }) => {
+  const [state, { moveCard }] = usePlaytester();
+  const [isCardTextView, setIsTextView] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  componentDidMount() {
-    const containerWidth = this._dropzone.offsetWidth;
+  // useEffect(() => {
 
-    this.setState({
-      containerWidth
-    });
-  }
+  // const containerWidth = this._dropzone.offsetWidth;
 
-  render() {
-    const {
-      name,
-      cards,
-      isOver,
-      connectDropTarget,
-      cardBackUrl,
-      cardWidth = 112
-    } = this.props;
+  // }, [])
 
-    const { isCardTextView, containerWidth } = this.state;
+  const cards = getCardsByZone(state, name);
 
-    const totalCards = cards.length;
+  const totalCards = cards.length;
 
-    const totalCardsWidth = (totalCards + 1) * cardWidth;
+  const totalCardsWidth = (totalCards + 1) * cardWidth;
 
-    const offset =
-      totalCardsWidth > containerWidth
-        ? Math.floor(totalCardsWidth - containerWidth) / totalCards
-        : 0;
+  // const offset =
+  //   totalCardsWidth > containerWidth
+  //     ? Math.floor(totalCardsWidth - containerWidth) / totalCards
+  //     : 0;
 
-    return (
-      <section className="rmp--zone">
-        <header className="rmp--zone-header">
-          <h2 className="rmp--zone-title">
-            {name.toLowerCase()} ({cards.length})
-          </h2>
-        </header>
-        {connectDropTarget(
+  return (
+    <section className="rmp--zone">
+      <header className="rmp--zone-header">
+        <h2 className="rmp--zone-title">
+          {name.toLowerCase()} ({cards.length})
+        </h2>
+      </header>
+      <Droppable droppableId={name} direction="horizontal">
+        {(provided, snapshot) => (
           <ul
             className={classnames('rmp--zone-box', {
-              'is-dropping': isOver,
+              [`rmp--zone--${name.toLowerCase()}`]: true,
+              'is-dropping': snapshot.isDraggingOver,
               'rmp--zone-box--text-view': isCardTextView
             })}
-            ref={c => (this._dropzone = c)}
+            ref={provided.innerRef}
+            {...provided.droppableProps}
           >
             {cards.map((card, i) => (
               <Card
                 key={card.id}
                 id={card.id}
-                left={card.left}
-                top={card.top}
-                offset={offset}
+                type={card.type}
                 index={i}
                 toughness={card.toughness}
                 power={card.power}
@@ -78,12 +64,13 @@ class Zone extends Component {
                 name={card.name}
               />
             ))}
+            {provided.placeholder}
           </ul>
         )}
-      </section>
-    );
-  }
-}
+      </Droppable>
+    </section>
+  );
+};
 
 Zone.propTypes = {
   name: PropTypes.oneOf(zoneTypes.zoneNames).isRequired,
@@ -95,43 +82,5 @@ Zone.propTypes = {
     })
   ).isRequired
 };
-const zoneTarget = {
-  drop(props, monitor, component) {
-    const item = monitor.getItem();
 
-    const clientOffset = monitor.getSourceClientOffset();
-
-    let left = Math.round(clientOffset.x);
-    let top = Math.round(clientOffset.y);
-
-    // offsets the top position because getSourceClientOffset is based on cursor to window
-    // const droptargetTop = component._dropzone.getBoundingClientRect().top;
-    // top = top - droptargetTop;
-
-    props.moveCard({
-      id: item.id,
-      fromZone: item.zone,
-      toZone: props.name,
-      left: left,
-      top: top
-    });
-  }
-};
-
-function collect(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
-  };
-}
-
-const withDropTarget = DropTarget(CARD, zoneTarget, collect);
-
-export default props => {
-  const [state, { moveCard }] = usePlaytester();
-  const cards = getCardsByZone(state, props.name);
-
-  const Component = withDropTarget(Zone);
-
-  return <Component cards={cards} moveCard={moveCard} {...props} />;
-};
+export default Zone;

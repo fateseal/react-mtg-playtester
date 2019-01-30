@@ -68,7 +68,10 @@
 }
 
 .rmp--app-battlefield {
-  height: 60vh;
+  /* height: 60vh; */
+}
+.rmp--app-battlefield {
+  /* height: 60vh; */
 }
 
 .rmp--app-actions {
@@ -119,6 +122,12 @@
   height: 100%;
 }
 
+.rmp--zone--battlefield,
+.rmp--zone--land,
+.rmp--zone--hand {
+  overflow-x: auto;
+}
+
 .rmp--zone-header {
   display: flex;
   /* justify-content: center; */
@@ -140,7 +149,7 @@
   flex: 1;
   border: 1px dashed var(--gray);
   border-radius: 4px;
-  height: 100%;
+  height: 170px;
   padding: var(--space1);
   position: relative;
   white-space: nowrap;
@@ -187,6 +196,7 @@
 /* card */
 
 .rmp--card {
+  max-width: 160px;
 }
 
 .rmp--card-stats {
