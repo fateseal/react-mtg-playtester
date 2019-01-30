@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
 import Playtester from '../src';
-import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 import '../src/css/sandbox.css';
 import data from './deck.json';
 import cardback from './mtgcard-back.png';
-
-import { reducer as sandboxReducer } from '../src';
-
-const store = createStore(
-  combineReducers({
-    playtester: sandboxReducer
-  }),
-  {},
-  composeWithDevTools(applyMiddleware(thunk))
-);
 
 const getCardsByBoard = (lib, board) => lib.filter(c => c.board === board);
 
@@ -43,19 +29,19 @@ class App extends Component {
 
     const items = getPlaytesterCards(cards);
 
+    console.log(items);
+
     const headerLeft = (
       <div style={{ color: 'white' }}>Link back to deck here</div>
     );
 
     return (
-      <Provider store={store}>
-        <Playtester
-          headerLeft={headerLeft}
-          cardBackUrl={cardback}
-          cards={items}
-          commander={format === 'Commander ' ? featuredCard : null}
-        />
-      </Provider>
+      <Playtester
+        headerLeft={headerLeft}
+        cardBackUrl={cardback}
+        cards={items}
+        commander={format === 'Commander ' ? featuredCard : null}
+      />
     );
   }
 }

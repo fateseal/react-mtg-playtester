@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
-import { connect } from 'react-redux';
 
 import * as zoneTypes from '../constants/zoneTypes';
 import { CARD_MODAL } from '../constants/modalTypes';
 import { CARD } from '../constants/itemTypes';
-import {
-  toggleTap,
-  moveCard,
-  setCardModalId,
-  openModal
-} from '../actions/playtesterActions';
 
 import CardShortcuts from './CardShortcuts';
+
+import { usePlaytester } from '../use-playtester';
 
 const CardStats = ({ counters, power, toughness }) => (
   <div className="rmp--card-stats">
@@ -26,14 +21,41 @@ const CardStats = ({ counters, power, toughness }) => (
   </div>
 );
 
-class Card extends Component {
-  componentDidMount() {
-    this.focusableElem = this._card.querySelector('[tabindex]');
-  }
+const Card = ({
+  zone,
+  id,
+  imageUrl,
+  name,
+  cardBackUrl,
+  connectDragSource,
+  isDragging,
+  isTapped,
+  index,
+  left,
+  top,
+  power,
+  toughness,
+  counters,
+  offset,
+  style
+}) => {
+  const focusableElem = null;
+  const cardRef = useRef(null);
 
-  handleClick = e => {
-    const { zone, id, toggleTap, moveCard } = this.props;
+  const [
+    state,
+    { toggleTap, moveCard, setCardModalId, openModal }
+  ] = usePlaytester();
 
+  useEffect(
+    () => {
+      // console.log(cardRef);
+      // focusableElemRef = cardRef.querySelector('[tabindex]');
+    },
+    [cardRef]
+  );
+
+  const handleClick = e => {
     if (zone === zoneTypes.BATTLEFIELD) {
       return toggleTap(id);
     }
@@ -55,87 +77,69 @@ class Card extends Component {
     }
   };
 
-  handleMouseOut = e => {
-    this.focusableElem.blur();
+  const handleMouseOut = e => {
+    // focusableElem.blur();
   };
 
-  handleMouseOver = e => {
-    this.focusableElem.focus();
+  const handleMouseOver = e => {
+    // focusableElem.focus();
   };
 
-  openModal = () => {
-    const { id, setCardModalId, openModal } = this.props;
+  const handleOpenModal = () => {
     setCardModalId(id);
     openModal(CARD_MODAL);
   };
 
-  handleContextMenu = e => {
+  const handleContextMenu = e => {
     e.preventDefault();
-    this.openModal();
+    handleOpenModal();
   };
 
-  renderCardImage() {
-    const { imageUrl, name, zone, cardBackUrl } = this.props;
-
+  const renderCardImage = () => {
     const src = zone === zoneTypes.LIBRARY ? cardBackUrl : imageUrl;
 
     return <img src={src} alt={name} className="rmp--card-img" />;
-  }
+  };
 
-  render() {
-    const {
-      connectDragSource,
-      isDragging,
-      id,
-      isTapped,
-      index,
-      zone,
-      left,
-      top,
-      power,
-      toughness,
-      counters,
-      offset,
-      style
-    } = this.props;
+  const isBattlefield = zone === zoneTypes.BATTLEFIELD;
+  const isHand = zone === zoneTypes.HAND;
 
-    const isBattlefield = zone === zoneTypes.BATTLEFIELD;
-    const isHand = zone === zoneTypes.HAND;
+  const sourceStyles = {
+    ...style,
+    marginLeft: isHand && index > 0 ? -offset : undefined,
+    display: 'inline-block',
+    maxWidth: 112,
+    position: isHand ? 'relative' : 'absolute',
+    left: isBattlefield ? left : undefined,
+    top: isBattlefield ? top : undefined,
+    zIndex: isBattlefield || isHand ? index : 1000 - index,
+    opacity: isDragging ? 0.5 : 1,
+    transform: isBattlefield && isTapped ? 'rotate(90deg)' : 'none',
+    transition: 'transform .2s'
+  };
 
-    const sourceStyles = {
-      ...style,
-      marginLeft: isHand && index > 0 ? -offset : undefined,
-      display: 'inline-block',
-      maxWidth: 112,
-      position: isHand ? 'relative' : 'absolute',
-      left: isBattlefield ? left : undefined,
-      top: isBattlefield ? top : undefined,
-      zIndex: isBattlefield || isHand ? index : 1000 - index,
-      opacity: isDragging ? 0.5 : 1,
-      transform: isBattlefield && isTapped ? 'rotate(90deg)' : 'none',
-      transition: 'transform .2s'
-    };
-
-    return connectDragSource(
+  // wrapped in span to fix https://github.com/react-dnd/react-dnd/issues/998#issuecomment-435322873
+  return connectDragSource(
+    <span>
       <li
-        ref={c => (this._card = c)}
-        onContextMenu={this.handleContextMenu}
+        ref={cardRef}
+        onContextMenu={handleContextMenu}
         style={sourceStyles}
-        onClick={this.handleClick}
-        onMouseOver={this.handleMouseOver}
-        onMouseOut={this.handleMouseOut}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
         className="rmp--card"
       >
-        <CardShortcuts id={id} zone={zone}>
-          {this.renderCardImage()}
-        </CardShortcuts>
+        {/* <CardShortcuts id={id} zone={zone}> */}
+        {renderCardImage()}
+        {/* </CardShortcuts> */}
         {isBattlefield && (
           <CardStats power={power} toughness={toughness} counters={counters} />
         )}
       </li>
-    );
-  }
-}
+    </span>
+  );
+};
 
 Card.propTypes = {
   id: PropTypes.number.isRequired,
@@ -143,15 +147,6 @@ Card.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   zone: PropTypes.oneOf(zoneTypes.zoneNames).isRequired
 };
-
-const actions = {
-  toggleTap,
-  moveCard,
-  setCardModalId,
-  openModal
-};
-
-const withConnect = connect(null, actions);
 
 const cardSource = {
   beginDrag(props) {
@@ -169,4 +164,4 @@ function collect(connect, monitor) {
 
 const withDragSource = DragSource(CARD, cardSource, collect);
 
-export default withConnect(withDragSource(Card));
+export default withDragSource(Card);

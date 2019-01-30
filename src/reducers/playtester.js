@@ -161,7 +161,7 @@ export default function playtester(state = initialState, action) {
   }
 }
 
-export const getPlaytester = state => state.playtester;
+export const getPlaytester = state => state;
 
 export const getCardsByZone = (state, zone) => {
   const sb = getPlaytester(state);

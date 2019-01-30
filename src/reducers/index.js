@@ -1,3 +1,1 @@
-import playtester from './playtester';
-
-export default playtester;
+export { default } from './playtester';

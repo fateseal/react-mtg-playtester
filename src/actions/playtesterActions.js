@@ -3,8 +3,6 @@ import { HAND, LIBRARY, BATTLEFIELD, COMMAND } from '../constants/zoneTypes';
 
 import { TUTOR_MODAL } from '../constants/modalTypes';
 
-import { getPlaytester } from '../reducers/playtester';
-
 export function reset(resetMulligans = true) {
   return dispatch => {
     dispatch({
@@ -18,7 +16,7 @@ export function reset(resetMulligans = true) {
 
 export function receiveCommander(card) {
   return (dispatch, getState) => {
-    const { cardIds } = getPlaytester(getState());
+    const { cardIds } = getState();
 
     const id = cardIds[cardIds.length - 1] + 1;
 
@@ -133,7 +131,7 @@ export function moveCard({
   top = 0
 }) {
   return (dispatch, getState) => {
-    const cards = getPlaytester(getState())[BATTLEFIELD];
+    const cards = getState()[BATTLEFIELD];
     const offset = cards.length;
 
     left = left === 0 ? 50 * offset : left;
@@ -159,7 +157,7 @@ export function shuffle() {
 
 export function draw() {
   return (dispatch, getState) => {
-    const lib = getPlaytester(getState())[LIBRARY];
+    const lib = getState()[LIBRARY];
     dispatch(
       moveCard({
         id: lib[0],
@@ -172,7 +170,7 @@ export function draw() {
 
 export function drawHand() {
   return (dispatch, getState) => {
-    const { handSize, mulligans } = getPlaytester(getState());
+    const { handSize, mulligans } = getState();
     const cardNum = handSize - mulligans;
     for (let i = 0; i < cardNum; i++) {
       dispatch(draw());
@@ -210,7 +208,7 @@ export function untapCard(id) {
 
 export function untap() {
   return (dispatch, getState) => {
-    const cardIds = getPlaytester(getState())[BATTLEFIELD];
+    const cardIds = getState()[BATTLEFIELD];
     return cardIds.forEach(id => dispatch(untapCard(id)));
   };
 }

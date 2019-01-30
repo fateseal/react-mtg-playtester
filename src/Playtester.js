@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { connect } from 'react-redux';
 import cx from 'classnames';
 
+import { usePlaytester } from './use-playtester';
 import {
   BATTLEFIELD,
   HAND,
@@ -13,11 +13,6 @@ import {
   EXILE,
   COMMAND
 } from './constants/zoneTypes';
-import {
-  reset,
-  receiveCards,
-  receiveCommander
-} from './actions/playtesterActions';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -26,80 +21,73 @@ import CardModal from './components/CardModal';
 
 import PlaytesterShortcuts from './components/PlaytesterShortcuts';
 
-import { isModalOpen } from './reducers/playtester';
+const Playtester = ({ cards = [], commander, headerLeft, cardBackUrl }) => {
+  const [
+    { modal },
+    { receiveCards, reset, receiveCommander, drawHand }
+  ] = usePlaytester();
 
-class Playtester extends Component {
-  componentDidMount() {
-    const {
-      cards,
-      commander,
-      receiveCards,
-      receiveCommander,
-      reset
-    } = this.props;
-
+  useEffect(() => {
+    console.log('mounted', cards);
     receiveCards(cards);
-    reset();
 
     if (commander) {
       receiveCommander(commander);
     }
-  }
 
-  render() {
-    const { commander, headerLeft, isModalOpen, cardBackUrl } = this.props;
+    reset();
+    drawHand();
+  }, []);
 
-    const isCommander = !!commander;
+  const hasModal = !!modal;
+  const isCommander = !!commander;
 
-    return (
-      <PlaytesterShortcuts>
-        <section
-          id="react-mtg-playtester"
-          className={cx('rmp--app', {
-            'has-modal': isModalOpen
+  // <PlaytesterShortcuts>
+  return (
+    <section
+      id="react-mtg-playtester"
+      className={cx('rmp--app', {
+        'has-modal': hasModal
+      })}
+    >
+      <Header headerLeft={headerLeft} />
+      <div className="rmp--app-battlefield">
+        <Zone name={BATTLEFIELD} />
+      </div>
+      <div className="rmp--app-bottom">
+        <div
+          className={cx('rmp--app-bottom-zones', {
+            'has-commander': isCommander
           })}
         >
-          <Header headerLeft={headerLeft} />
-          <div className="rmp--app-battlefield">
-            <Zone name={BATTLEFIELD} />
+          <div>
+            <Zone name={HAND} />
           </div>
-          <div className="rmp--app-bottom">
-            <div
-              className={cx('rmp--app-bottom-zones', {
-                'has-commander': isCommander
-              })}
-            >
-              <div>
-                <Zone name={HAND} />
-              </div>
-              <div>
-                <Zone name={LIBRARY} cardBackUrl={cardBackUrl} />
-              </div>
-              <div>
-                <Zone name={GRAVEYARD} />
-              </div>
-              <div>
-                <Zone name={EXILE} />
-              </div>
-              {isCommander && (
-                <div>
-                  <Zone name={COMMAND} />
-                </div>
-              )}
+          <div>
+            <Zone name={LIBRARY} cardBackUrl={cardBackUrl} />
+          </div>
+          <div>
+            <Zone name={GRAVEYARD} />
+          </div>
+          <div>
+            <Zone name={EXILE} />
+          </div>
+          {isCommander && (
+            <div>
+              <Zone name={COMMAND} />
             </div>
-          </div>
-          <Footer />
-          <CardModal />
-        </section>
-      </PlaytesterShortcuts>
-    );
-  }
-}
+          )}
+        </div>
+      </div>
+      <Footer />
+      <CardModal />
+    </section>
+  );
+  //  </PlaytesterShortcuts>
+};
 
 Playtester.propTypes = {
   cardBackUrl: PropTypes.string.isRequired,
-  receiveCards: PropTypes.func.isRequired,
-  isModalOpen: PropTypes.bool.isRequired,
   commander: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string
@@ -118,18 +106,6 @@ Playtester.propTypes = {
   )
 };
 
-const select = state => ({
-  isModalOpen: isModalOpen(state)
-});
-
-const actions = {
-  receiveCards,
-  receiveCommander,
-  reset
-};
-
-const withConnect = connect(select, actions);
-
 const withBackend = DragDropContext(HTML5Backend);
 
-export default withConnect(withBackend(Playtester));
+export default withBackend(Playtester);

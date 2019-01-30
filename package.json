@@ -41,12 +41,14 @@
     "prop-types": "^15.6.2",
     "react-dnd": "^7.0.2",
     "react-dnd-html5-backend": "^7.0.2",
+    "react-enhanced-reducer-hook": "^1.0.2",
     "react-modal": "^3.8.1",
-    "react-shortcuts": "^1.6.2"
+    "react-shortcuts": "^1.6.2",
+    "redux-logger": "^3.0.6"
   },
   "peerDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1"
   },
@@ -66,8 +68,8 @@
     "babel-loader": "^8.0.5",
     "jest": "^23.6.0",
     "prettier": "^1.7.4",
-    "react": "^16.7.0",
-    "react-dom": "^16.6.3",
+    "react": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.0",
     "react-redux": "^6.0.0",
     "redux-devtools-extension": "^2.13.7",
     "redux-thunk": "^2.3.0",

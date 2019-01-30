@@ -1,30 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import {
-  reset,
-  untap,
-  mulligan,
-  shuffle,
-  nextTurn,
-  openModal
-} from '../actions/playtesterActions';
+import { usePlaytester } from '../use-playtester';
 import { SHORTCUTS_MODAL } from '../constants/modalTypes';
 
 import Button from './PlaytesterButton';
 import TutorDropdown from './TutorDropdown';
 
-import { getPlaytester } from '../reducers/playtester';
+const Footer = props => {
+  const [
+    { turn },
+    { reset, mulligan, untap, shuffle, nextTurn, openModal }
+  ] = usePlaytester();
 
-const Footer = ({
-  reset,
-  mulligan,
-  untap,
-  shuffle,
-  turn,
-  nextTurn,
-  openModal
-}) => {
   return (
     <footer className="rmp--footer">
       <div className="rmp--footer-tips">
@@ -64,17 +51,4 @@ const Footer = ({
   );
 };
 
-const select = state => ({
-  turn: getPlaytester(state).turn
-});
-
-const actions = {
-  shuffle,
-  openModal,
-  nextTurn,
-  mulligan,
-  reset,
-  untap
-};
-
-export default connect(select, actions)(Footer);
+export default Footer;

@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { DropTarget } from 'react-dnd';
 import classnames from 'classnames';
 
+import { usePlaytester } from '../use-playtester';
+
 import { CARD } from '../constants/itemTypes';
 import * as zoneTypes from '../constants/zoneTypes';
-import { moveCard } from '../actions/playtesterActions';
 import { getCardsByZone } from '../reducers/playtester';
 
 import Card from './Card';
-
-const styles = {
-  droptarget: {
-    border: '1px dashed #666',
-    borderRadius: 4,
-    height: '100%',
-    padding: 4,
-    position: 'relative',
-    whiteSpace: 'nowrap'
-    // overflow: 'auto'
-  }
-};
 
 class Zone extends Component {
   state = {
@@ -107,22 +95,6 @@ Zone.propTypes = {
     })
   ).isRequired
 };
-
-Zone.defaultProps = {
-  cards: []
-};
-
-const select = (state, props) => ({
-  cards: getCardsByZone(state, props.name),
-  ...props
-});
-
-const actions = {
-  moveCard
-};
-
-const withConnect = connect(select, actions);
-
 const zoneTarget = {
   drop(props, monitor, component) {
     const item = monitor.getItem();
@@ -133,8 +105,8 @@ const zoneTarget = {
     let top = Math.round(clientOffset.y);
 
     // offsets the top position because getSourceClientOffset is based on cursor to window
-    const droptargetTop = component._dropzone.getBoundingClientRect().top;
-    top = top - droptargetTop;
+    // const droptargetTop = component._dropzone.getBoundingClientRect().top;
+    // top = top - droptargetTop;
 
     props.moveCard({
       id: item.id,
@@ -152,6 +124,14 @@ function collect(connect, monitor) {
     isOver: monitor.isOver()
   };
 }
+
 const withDropTarget = DropTarget(CARD, zoneTarget, collect);
 
-export default withConnect(withDropTarget(Zone));
+export default props => {
+  const [state, { moveCard }] = usePlaytester();
+  const cards = getCardsByZone(state, props.name);
+
+  const Component = withDropTarget(Zone);
+
+  return <Component cards={cards} moveCard={moveCard} {...props} />;
+};

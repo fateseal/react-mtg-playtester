@@ -1,17 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Shortcuts } from 'react-shortcuts';
-import { connect } from 'react-redux';
+
+import { usePlaytester } from '../use-playtester';
 
 import { CARD_MODAL } from '../constants/modalTypes';
 import * as zoneTypes from '../constants/zoneTypes';
-import {
-  toggleTap,
-  moveCard,
-  openModal,
-  setCardModalId,
-  incrementCardValue,
-  decrementCardValue
-} from '../actions/playtesterActions';
 
 const getMoveToZone = action => {
   const zones = {
@@ -36,19 +29,20 @@ const getMoveToZone = action => {
   }
 };
 
-class CardShortcuts extends Component {
-  handleShortcuts = (action, event) => {
-    const {
-      id,
-      zone,
-      moveCard,
+const CardShortcuts = ({ id, zone, children }) => {
+  const [
+    state,
+    {
       toggleTap,
-      setCardModalId,
+      moveCard,
       openModal,
+      setCardModalId,
       incrementCardValue,
       decrementCardValue
-    } = this.props;
+    }
+  ] = usePlaytester();
 
+  const handleShortcuts = (action, event) => {
     const inc = name => incrementCardValue(id, name);
     const dec = name => decrementCardValue(id, name);
 
@@ -79,22 +73,11 @@ class CardShortcuts extends Component {
     });
   };
 
-  render() {
-    return (
-      <Shortcuts name="Card" handler={this.handleShortcuts}>
-        {this.props.children}
-      </Shortcuts>
-    );
-  }
-}
-
-const actions = {
-  toggleTap,
-  moveCard,
-  openModal,
-  setCardModalId,
-  incrementCardValue,
-  decrementCardValue
+  return (
+    <Shortcuts name="Card" handler={handleShortcuts}>
+      {children}
+    </Shortcuts>
+  );
 };
 
-export default connect(null, actions)(CardShortcuts);
+export default CardShortcuts;
